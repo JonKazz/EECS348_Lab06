@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Font Control</title>
+    <style>
+        #text {
+            border: 2px solid black;
+            padding: 10px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>CSS Font Control</h1>
+    <label for="red">Enter Red (0-255):</label>
+    <input type="number" id="red" min="0" max="255" value="0"><br><br>
+
+    <label for="green">Enter Green (0-255):</label>
+    <input type="number" id="green" min="0" max="255" value="0"><br><br>
+
+    <label for="blue">Enter Blue (0-255):</label>
+    <input type="number" id="blue" min="0" max="255" value="0"><br><br>
+
+    <button onclick="changeColor()">Apply</button>
+    <p id="text">I love (and hate) programming</p>
+
+    <script>
+        function changeColor() {
+            // Get RGB values from input fields
+            const red = document.getElementById('red').value;
+            const green = document.getElementById('green').value;
+            const blue = document.getElementById('blue').value;
+
+            // Validate that the values are numbers and within range
+            if (red < 0 || red > 255 || green < 0 || green > 255 || blue < 0 || blue > 255) {
+                alert("Please enter values between 0 and 255 for each color.");
+                return;
+            }
+
+            // Construct the RGB color string
+            const rgb = `rgb(${red}, ${green}, ${blue})`;
+
+            // Apply the color and border color to the paragraph
+            const text = document.getElementById('text');
+            text.style.color = rgb;
+            text.style.borderColor = rgb;
+        }
+    </script>
+    <p><a href="practice3.html">Go to Practice 3</a></p>
+</body>
+</html>
